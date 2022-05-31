@@ -1,48 +1,54 @@
-class CalcControler {
-    
+class CalcControler{
+
     constructor (){
-        this._displayCalc = "0"; //Atributos privados (_atributo)
-        this._currentDate; //Atributos, são parecidos com varaveis, porem, com mais funcionalidades
+
+        this._displayCalcEl = document.querySelector("#display");
+        this._dateEl        = document.querySelector("#data");
+        this._timeEl        = document.querySelector("#hora");
+        this._diplayCalc; //Atributo privado
+        this._dataAtual;
         this.initialize();
-    }
-
-    initialize() {
-        let displayCalcEl = document.querySelector('#display');
-        let dateEl        = document.querySelector('#hora');
-        let timeEl        = document.querySelector('#data');
-
-        displayCalcEl.innerHTML = "4567";
-        dateEl.innerHTML = "20:52";
-        timeEl.innerHTML = "20/02/2022";
 
     }
 
-    get displayCalc() {
-        return this._displayCalc;
+    initialize () {
+
+        
     }
 
-    set displayCalc(valor) {
-        this._displayCalc = valor;
+    get displayTime(){
+        return this._timeEl.innerHTML;
     }
 
-    get currentDate() {
-        return this._currentDate;
+    get displayDate(){
+        return this._dateEl.innerHTML;
     }
 
-    set currentDate(valor) {
-        this._currentDate = valor;
+    set displayTime(value){
+        return this._timeEl.innerHTML = value;
+    }
+
+    set displayDate(value){
+        return this._dateEl.innerHTML = value;
+    }
+
+    get displayCalc (){
+
+        return this._displayCalcEl.innerHTML;
+
+    }
+
+    get currentDate(){
+        return new Date();
+    }
+
+    set displayCalc (value) {
+
+        this._displayCalc = value
+    }
+
+    set currentDate(value){
+        this._dataAtual = value
     }
 
 }
-
-/*
-    Manipular o DOM 
-    D: document
-    O: object
-    M: Model
-
-    BOM
-    B: browser 
-    O: object
-    M: Model
-*/
