@@ -2,6 +2,7 @@ class CalcControler{
 
     constructor (){
 
+        this._locale        = 'pt-BR';
         this._displayCalcEl = document.querySelector("#display");
         this._dateEl        = document.querySelector("#data");
         this._timeEl        = document.querySelector("#hora");
@@ -13,6 +14,30 @@ class CalcControler{
 
     initialize () {
 
+        this.setdisplayDateTime();
+
+        setInterval(()=>{ //Utiliza para algo que seja intermitente 
+
+            this.setdisplayDateTime();    
+
+        },1000); //1 seg
+
+    }
+    
+    initButtonsEvents(){
+
+        document.querySelectorAll("#buttons > g, #parts > g"); // > Celetores filhos
+
+    }
+    
+    setdisplayDateTime(){
+
+        this.displayDate = this.currentDate.toLocaleDateString(this._locale,{ //Data baseada no local de origem
+            day: "2-digit",
+            month: "long",
+            year: "numeric"
+        });
+        this.displayTime = this.currentDate.toLocaleTimeString(this._locale); //Hora baseada no local de origem
         
     }
 
